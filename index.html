@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine 💝</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #ff4e8a;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffe6f0;
+}
+
+.hidden {
+    display: none;
+}
+
+input {
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 10px;
+}
+img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- 첫 페이지 -->
+<div id="page1">
+    <img src="yourphoto1.jpg" alt="우리 사진">
+    <h1>Happy Valentine 💝</h1>
+    <p>항상 내 옆에 있어줘서 고마워.<br>너를 정말 많이 사랑해.</p>
+    <button onclick="startGame()">게임 시작</button>
+</div>
+
+<!-- 퀴즈 페이지 -->
+<div id="page2" class="hidden">
+    <h2>💌 우리 퀴즈 💌</h2>
+    <p>우리가 처음 만난 날은 언제일까?</p>
+    <input type="text" id="answer" placeholder="정답 입력">
+    <br>
+    <button onclick="checkAnswer()">정답 확인</button>
+    <p id="result"></p>
+</div>
+
+<!-- 성공 페이지 -->
+<div id="page3" class="hidden">
+    <img src="yourphoto2.jpg" alt="우리 추억">
+    <h2>정답이야 💕</h2>
+    <p>여기까지 와줘서 고마워.<br>
+    오늘을 위해 작은 선물을 준비했어.</p>
+    <p>🎁 힌트: 네가 요즘 갖고 싶다던 그거!</p>
+    <h3>발렌타인데이 행복하게 보내 ❤️</h3>
+</div>
+
+</div>
+
+<script>
+function startGame() {
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+}
+
+function checkAnswer() {
+    var answer = document.getElementById("answer").value;
+    if(answer === "2023년 3월 5일") {
+        document.getElementById("page2").classList.add("hidden");
+        document.getElementById("page3").classList.remove("hidden");
+    } else {
+        document.getElementById("result").innerText = "힌트: 벚꽃 피기 전이었어 🌸";
+    }
+}
+</script>
+
+</body>
+</html>
